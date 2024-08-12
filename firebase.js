@@ -1,12 +1,10 @@
 // Import the functions you need from the SDKs you need
+import { useEffect } from 'react';
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, isSupported } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyDkZPhEd4WxYvrgLscvjc6s8ZOSfknFAg0",
   authDomain: "inventory-management-app-91271.firebaseapp.com",
@@ -19,7 +17,20 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const firestore = getFirestore(app);
 
-export {firestore}
+const FirebaseInit = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      isSupported().then((supported) => {
+        if (supported) {
+          getAnalytics(app);
+        }
+      });
+    }
+  }, []);
+
+  return null; // This component doesn't render anything
+};
+
+export { firestore, FirebaseInit };
