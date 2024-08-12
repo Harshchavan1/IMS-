@@ -43,9 +43,9 @@ export default function Home() {
     setInventory(inventoryList);
   };
 
-  useEffect (() => {
+  useEffect(() => {
     if (typeof window !== 'undefined') {
-      updateInventory()
+      updateInventory();
     }
   }, []);
 
@@ -148,9 +148,8 @@ export default function Home() {
               bgcolor={'#f0f0f0'}
               paddingX={5}
             >
-              <Typography variant={'h3'} color={'#333'} textAlign={'center'}>
-                {name} - {quantity}
-              </Typography>
+              <Typography variant="h6">{name}</Typography>
+              <Typography variant="h6">Quantity: {quantity}</Typography>
               <Button variant="contained" onClick={() => removeItem(name)}>
                 Remove
               </Button>
@@ -159,5 +158,5 @@ export default function Home() {
         </Stack>
       </Box>
     </Box>
-  )
+  );
 }
