@@ -43,8 +43,10 @@ export default function Home() {
     setInventory(inventoryList)
   }
 
-  useEffect (() => {
-    updateInventory()
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      updateInventory()
+    }
   }, []);
 
   const addItem = async (item) => {
