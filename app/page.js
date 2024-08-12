@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from 'react';
 import { Box, Stack, Typography, Button, Modal, TextField } from '@mui/material';
 import { firestore } from '@/firebase';
