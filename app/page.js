@@ -44,7 +44,9 @@ export default function Home() {
   }
 
   useEffect (() => {
-    updateInventory()
+    if (typeof window !== 'undefined') {
+      updateInventory()
+    }
   }, []);
 
   const addItem = async (item) => {
