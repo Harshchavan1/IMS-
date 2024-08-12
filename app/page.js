@@ -41,15 +41,9 @@ export default function Home() {
     setInventory(inventoryList);
   };
 
-<<<<<<< HEAD
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      updateInventory();
-=======
   useEffect (() => {
     if (typeof window !== 'undefined') {
       updateInventory()
->>>>>>> df2807dc64177214c9d0a53c16b1adf772f05c0d
     }
   }, []);
 
